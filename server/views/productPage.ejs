@@ -1,0 +1,22 @@
+<form action="/" method="POST">
+    <div>
+      <label for="say">What greeting do you want to say?</label>
+      <input name="title" id="say">
+    </div>
+
+    <div>
+      <label for="to">Who do you want to say it to?</label>
+      <input name="description" id="to">
+    </div>
+
+    <div>
+      <button type="submit">Send my greetings</button>
+    </div>
+  </form>
+
+
+<% for(let i = 0; i < products.length; i++) { %>
+    <div><%= products[i].title %></div>
+    <div><%= products[i] %></div>
+    <div><%= products[i].description %></div>
+<% } %>
