@@ -82,9 +82,21 @@ export const searchText = (text) => {
     }
 }
 
-export const addItem = (product) => {
+export const addItem = (title, description, amount) => {
+    console.log('add');
     return dispatch => {
-        dispatch(addToCart(product));
+        dispatch(addToCart(title, description, amount));
+    //     try {
+    //         axios.post(`${API_URL}/order`, {
+    //         title, 
+    //         description,
+    //         amount
+    //     }).then(res => {
+    //         console.log(res.config.data);
+    //     })
+    //     } catch(err) {
+    //         console.log(err)
+    //     }
     }
 }
 
@@ -142,18 +154,22 @@ const searchWord = (word) => {
     }
 }
 
-const addToCart = (productInCart) => {
+const addToCart = (title, description, amount) => {
+    console.log(title, description, amount)
     return {
         type: types.ADD_TO_CART,
-        productInCart
+        title, 
+        description,
+        amount
     }
 }
 
 const sortProduct = (sortName) => {
-    return {
-        type: types.SORTING,
-        sortname: sortName
-    }
+    console.log('sortName ' + sortName);
+    // return {
+    //     type: types.SORTING,
+    //     sortname: sortName
+    // }
 }
 
 const updateItem = (index) => {
