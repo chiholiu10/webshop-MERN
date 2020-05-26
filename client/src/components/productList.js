@@ -64,6 +64,9 @@ const ProductList = ({ productList }) => {
                     productId={product._id} 
                     index={i}     
                     productEditable={product.editable}
+                    title={product.title}
+                    description={product.description}
+                    amount={product.amount} 
                 />
            
             </div>
