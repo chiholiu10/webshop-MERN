@@ -2,6 +2,7 @@ import { types } from '../actions/index';
 
 const initialState = {
     products: [],
+    orders: [],
     searchBarText: "",
     amountProduct: 0,
     editToggle: false
@@ -11,12 +12,14 @@ export const products = (state = initialState, action) => {
     switch(action.type) {
         case types.FETCH_ITEMS: 
             return {
-                products: action.allProducts
+                products: action.allProducts,
+                orders: []
             }
         case types.ADD_PRODUCT: 
+            console.log(state.products)
             return {
                 ...state,
-                products: [...state.products, {title: action.title, description: action.description, amount: 0}]
+                products: [...state.products, {title: action.title, description: action.description, amount: 1}]
             }
         case types.REMOVE_PRODUCT: 
             return {
@@ -24,8 +27,11 @@ export const products = (state = initialState, action) => {
                 products: [...state.products.filter((_, i) => i !== action.id)]
             }
         case types.ADD_TO_CART: 
+            console.log(action.title, action.description, action.amount);
+            console.log(state.orders);
             return {
-                ...state
+                ...state,
+                 orders: [...state.orders, {title: action.title, description: action.description, amount: action.amount}]
             }
         case types.SORTING:
             let sortname = action.sortname;
@@ -68,13 +74,12 @@ export const products = (state = initialState, action) => {
                 searchBarText: action.word
             }
         case types.UPDATE_PRODUCT: {
-            console.log('update')
                 return {
                     ...state,
                     products: state.products.map((product, i) => i === action.index ? {
                         ...product,
                         editable: true
-                    }: product
+                    } : product
                 )
             }
         }
@@ -86,7 +91,7 @@ export const products = (state = initialState, action) => {
                         title: action.updatedTitle,
                         description: action.updatedDescription,
                         editable: false
-                    }: product
+                    } : product
                 )
             }
         }
