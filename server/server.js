@@ -39,13 +39,19 @@ app.use(methodOverride('_method'))
 
 // import Routes
 const postsRoute = require('./routes/posts');
+const orderRoute = require('./routes/order');
 
 app.use('/', postsRoute);
+app.use('/', orderRoute);
 
 app.get('/', (req, res) => {
     // res.render('productPage.ejs')
     res.send
 });
+
+app.get('/order', (req, res) => {
+    res.send
+})
 
 app.get('/profile', checkAuthenticated, (req, res) => {
     res.render('index.ejs');
