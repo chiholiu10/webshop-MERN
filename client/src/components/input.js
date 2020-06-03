@@ -11,7 +11,7 @@ const Input = () => {
     useEffect(() => {
         async function fetchData() {
             const products = await axios.get(API_URL);
-            dispatch(fetchProducts(products.data))
+            dispatch(fetchProducts(products.data));
         }
         fetchData();
       }, []);
@@ -27,7 +27,6 @@ const Input = () => {
                     dispatch(addProduct(title.value, description.value, 0));
                     title.value = "";
                     description.value = "";
-                    
                 }
                 } method="POST">
                 <div>
