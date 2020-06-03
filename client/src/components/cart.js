@@ -1,15 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { searchText } from '../actions/index';
 import { connect } from 'react-redux';
+import { decrementProductCart, incrementProductCart } from '../actions/index';
 
 const Cart = ({ ordersCart }) => {
     const dispatch = useDispatch();
 
     const getOrders = ordersCart.map((order, i) => {
         return (
-            <div>
+            <div key={i}>
                 <div>
+                    <button onClick={() => dispatch(decrementProductCart())}>-</button>
+                    <button onClick={() => dispatch(incrementProductCart())}>+</button>
                     { order.title }
                     { order.description }
                     { order.amount }
@@ -29,8 +31,6 @@ const mapStateToProps = state => {
     return {
         ordersCart: state.products.orders
     }
- 
 }
-
 
 export default connect(mapStateToProps, null)(Cart);
