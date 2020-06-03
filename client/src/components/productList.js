@@ -45,6 +45,7 @@ const ProductList = ({ productList }) => {
                     productId={product._id} 
                     index={i} 
                     productEditable={product.editable}
+                    amount={product.amount}
                 />
            
             </form>
@@ -68,7 +69,6 @@ const ProductList = ({ productList }) => {
                     description={product.description}
                     amount={product.amount} 
                 />
-           
             </div>
         ) 
     });
