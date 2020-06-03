@@ -11,7 +11,9 @@ export const types = {
     SEARCH: 'SEARCH',
     ADD_TO_CART: 'ADD_TO_CART',
     INCREMENT: 'INCREMENT',
-    DECREMENT: 'DECREMENT'
+    DECREMENT: 'DECREMENT',
+    DECREMENT_PROODUCT_CART: 'DECREMENT_PROODUCT_CART',
+    INCREMENT_PROODUCT_CART: 'INCREMENT_PROODUCT_CART',
 }
 
 export const addProduct = (title, description, amount) => {
@@ -82,10 +84,10 @@ export const searchText = (text) => {
     }
 }
 
-export const addItem = (title, description, amount) => {
+export const addItem = (productId, title, description, amount) => {
     console.log('add');
     return dispatch => {
-        dispatch(addToCart(title, description, amount));
+        dispatch(addToCart(productId, title, description, amount));
     //     try {
     //         axios.post(`${API_URL}/order`, {
     //         title, 
@@ -132,6 +134,22 @@ export const decrementProduct = (index, amount, id) => {
     }
 }
 
+export const incrementProductCart = () => {
+    return dispatch => {
+        dispatch(incrementCart())
+        // try {
+        //     console.log('increment')
+        // } 
+        // catch {
+        //     console.log('error');
+        // }
+    }
+}
+
+export const decrementProductCart = () => {
+    console.log('decrementProductCart');
+}
+
 export const sorting = (row) => {
     let dynamicSortName = row;
     let lowerCaseSortName = dynamicSortName.toLowerCase();
@@ -147,6 +165,10 @@ export const fetchProducts = (data) => {
     }
 }
 
+const incrementCart = () => {
+    console.log('increment');
+}
+
 const searchWord = (word) => {
     return {
         type: types.SEARCH,
@@ -154,10 +176,11 @@ const searchWord = (word) => {
     }
 }
 
-const addToCart = (title, description, amount) => {
-    console.log(title, description, amount)
+const addToCart = (productId, title, description, amount) => {
+    console.log()
     return {
         type: types.ADD_TO_CART,
+        productId,
         title, 
         description,
         amount
