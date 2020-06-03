@@ -16,10 +16,9 @@ export const products = (state = initialState, action) => {
                 orders: []
             }
         case types.ADD_PRODUCT: 
-            console.log(state.products)
             return {
                 ...state,
-                products: [...state.products, {title: action.title, description: action.description, amount: 1}]
+                products: [...state.products, {productId: action.productId, title: action.title, description: action.description, amount: 1}]
             }
         case types.REMOVE_PRODUCT: 
             return {
@@ -27,8 +26,7 @@ export const products = (state = initialState, action) => {
                 products: [...state.products.filter((_, i) => i !== action.id)]
             }
         case types.ADD_TO_CART: 
-            console.log(action.title, action.description, action.amount);
-            console.log(state.orders);
+            console.log(action)
             return {
                 ...state,
                  orders: [...state.orders, {title: action.title, description: action.description, amount: action.amount}]
@@ -98,7 +96,6 @@ export const products = (state = initialState, action) => {
         default:
             return state;
     }
-
 }
 
 export default products;

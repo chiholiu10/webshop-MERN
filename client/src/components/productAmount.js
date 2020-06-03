@@ -2,7 +2,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { decrementProduct, incrementProduct } from '../actions/index';
 
-export const ProductAmount = ({ amount, index, productId }) => {
+export const ProductAmount = ({ 
+    amount, 
+    index, 
+    productId 
+}) => {
     const dispatch = useDispatch();
     return (
         <div>
