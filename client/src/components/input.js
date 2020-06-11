@@ -14,7 +14,7 @@ const Input = () => {
             dispatch(fetchProducts(products.data));
         }
         fetchData();
-      }, []);
+      });
 
     return (
         <div>
