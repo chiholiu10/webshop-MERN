@@ -9,9 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div class="navbar">
-          <Cart/>
-        </div>
+        <Cart/>
         <Searchbar/>
         <Input/>
         <ProductList/>
