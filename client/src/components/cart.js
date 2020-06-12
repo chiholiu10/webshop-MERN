@@ -21,9 +21,9 @@ const Cart = ({ ordersCart }) => {
     });
 
     return (
-       <div>
-           {getOrders}
-       </div>
+        <div className="navbar">
+            {getOrders}
+        </div>
     )
 }
 

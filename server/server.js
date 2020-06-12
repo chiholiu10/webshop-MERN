@@ -65,7 +65,7 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/profile',
     failureRedirect: '/login',
     failureFlash: true
-  }))
+}))
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
@@ -91,7 +91,7 @@ app.delete('/logout', (req, res) => {
     res.redirect('/login');
 })
 
-mongoose.connect('mongodb+srv://chiho:chiho@cluster0-gtcdn.mongodb.net/test?retryWrites=true&w=majority', () => {
+mongoose.connect('mongodb+srv://chiho:test@cluster0-njoye.mongodb.net/webshop?retryWrites=true&w=majority', () => {
     console.log('connected to DB')
 })
 
@@ -109,4 +109,4 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
-app.listen(3004);
+app.listen(3011);
