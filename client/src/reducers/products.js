@@ -18,7 +18,12 @@ export const products = (state = initialState, action) => {
         case types.ADD_PRODUCT: 
             return {
                 ...state,
-                products: [...state.products, {productId: action.productId, title: action.title, description: action.description, amount: 1}]
+                products: [...state.products, { 
+                    productId: action.productId, 
+                    title: action.title, 
+                    description: action.description, 
+                    amount: 1
+                }]
             }
         case types.REMOVE_PRODUCT: 
             return {
@@ -26,10 +31,13 @@ export const products = (state = initialState, action) => {
                 products: [...state.products.filter((_, i) => i !== action.id)]
             }
         case types.ADD_TO_CART: 
-            console.log(action)
             return {
                 ...state,
-                 orders: [...state.orders, {title: action.title, description: action.description, amount: action.amount}]
+                 orders: [...state.orders, {
+                    title: action.title, 
+                    description: action.description, 
+                    amount: action.amount
+                }]
             }
         case types.SORTING:
             let sortname = action.sortname;
