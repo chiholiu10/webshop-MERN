@@ -88,17 +88,17 @@ export const addItem = (productId, title, description, amount) => {
     console.log('add');
     return dispatch => {
         dispatch(addToCart(productId, title, description, amount));
-    //     try {
-    //         axios.post(`${API_URL}/order`, {
-    //         title, 
-    //         description,
-    //         amount
-    //     }).then(res => {
-    //         console.log(res.config.data);
-    //     })
-    //     } catch(err) {
-    //         console.log(err)
-    //     }
+        try {
+            axios.post(`${API_URL}/order`, {
+            title, 
+            description,
+            amount
+        }).then(res => {
+            console.log(res.config.data);
+        })
+        } catch(err) {
+            console.log(err)
+        }
     }
 }
 
